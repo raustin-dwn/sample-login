@@ -1,7 +1,13 @@
-// Valid user accounts
+// Valid user accounts with pre-hashed passwords
 const validUsers = [
-    { email: 'user1@example.com', password: 'password123' },
-    { email: 'user2@example.com', password: 'password456' }
+    { 
+        email: 'user1@example.com', 
+        password: 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f' 
+    },
+    { 
+        email: 'user2@example.com', 
+        password: '8c0e81d5d1d7ad06bd73902a2f04c7ab7f35a5dbdb96bd88199e5a339a4fd6b5'
+    }
 ];
 
 document.getElementById('loginForm').addEventListener('submit', async function(e) {
@@ -32,8 +38,11 @@ function simulateLoginRequest(email, password) {
     return new Promise((resolve) => {
         // Simulate network delay
         setTimeout(() => {
+            // Hash the input password before comparing
+            const hashedPassword = CryptoJS.SHA256(password).toString();
+            
             const user = validUsers.find(u => 
-                u.email === email && u.password === password
+                u.email === email && u.password === hashedPassword
             );
 
             resolve({

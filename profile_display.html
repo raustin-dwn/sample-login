@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Profile</title>
+    <link rel="stylesheet" type="text/css" href="prf_styles.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <div class="profile-info">
+            <div class="info-group">
+                <h3>Personal Information</h3>
+                <p><strong>First Name:</strong> <span id="firstName"></span></p>
+                <p><strong>Last Name:</strong> <span id="lastName"></span></p>
+                <p><strong>Email:</strong> <span id="emailDisplay"></span></p>
+            </div>
+            
+            <div class="info-group">
+                <h3>Mailing Address</h3>
+                <p id="streetAddressDisplay"></p>
+                <p id="aptUnitDisplay"></p>
+                <p id="cityStateDisplay"></p>
+                <p id="countryZipDisplay"></p>
+            </div>
+
+            <div class="info-group">
+                <h3>Profile Image</h3>
+                <img id="profileImageDisplay" src="" alt="Profile Image" class="profile-image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+    window.addEventListener('DOMContentLoaded', function() {
+        // Retrieve and parse the profile data
+        const profileData = JSON.parse(localStorage.getItem('profileData'));
+        console.log('Retrieved profile data:', profileData);  // Debug log
+        
+        if (profileData) {
+            // Personal Information
+            document.getElementById('firstName').textContent = profileData.firstName;
+            document.getElementById('lastName').textContent = profileData.lastName;
+            document.getElementById('emailDisplay').textContent = profileData.email;
+            
+            // Address Information
+            document.getElementById('streetAddressDisplay').textContent = profileData.streetAddress;
+            if (profileData.aptUnit) {
+                document.getElementById('aptUnitDisplay').textContent = profileData.aptUnit;
+            }
+            document.getElementById('cityStateDisplay').textContent = `${profileData.city}, ${profileData.state}`;
+            document.getElementById('countryZipDisplay').textContent = `${profileData.country} ${profileData.zipCode}`;
+            
+            // Profile Image
+            const profileImage = localStorage.getItem('profileImage');
+            if (profileImage) {
+                document.getElementById('profileImageDisplay').src = profileImage;
+            }
+        } else {
+            console.error('No profile data found in localStorage');
+        }
+    });
+    </script>
+</body>
+</html> 

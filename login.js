@@ -3,36 +3,37 @@ function loginSubmit() {
     const password = document.getElementById('password').value;
     
     const xhr = new XMLHttpRequest();
-    const url = `https://api.project-foolio.com/login?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+    const url = 'https://api.project-foolio.com/login';
     
     xhr.open('POST', url, true);
-    
     xhr.setRequestHeader('Content-Type', 'application/json');
     
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             try {
-                const data = JSON.parse(xhr.responseText);
-                if (xhr.status === 200) {
-                    if (data.success) {
-                        console.log('Login successful:', data);
-                        window.location.href = 'profile_creation.html';
-                    } else {
-                        alert(data.message || 'Invalid credentials');
-                    }
+                const response = JSON.parse(xhr.responseText);
+                if (response.success) {
+                    console.log('Login successful:', response);
+                    window.location.href = 'profile_creation.html';
                 } else {
-                    alert(`Error: ${data.message || 'Login failed'}`);
+                    alert(response.message || 'Login failed');
                 }
             } catch (error) {
-                console.error('Login error:', error);
-                alert('An error occurred during login. Please try again.');
+                console.error('Response parsing error:', error);
+                alert('An unexpected error occurred. Please try again.');
             }
         }
     };
     
-    const data = JSON.stringify({
-        email: email,
-        password: password
+    xhr.onerror = function() {
+        console.error('Network error occurred');
+        alert('A network error occurred. Please check your connection and try again.');
+    };
+    
+    const requestBody = JSON.stringify({
+        "email": email,
+        "password": password
     });
-    xhr.send(data);
+    
+    xhr.send(requestBody);
 }

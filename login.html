@@ -31,21 +31,7 @@
     </div>
     <script>      
      function loginSubmit() {
-          const myHeaders = new Headers();
-      myHeaders.append("Content-Type", "application/json");
-      myHeaders.append("Access-Control-Allow-Origin", "*");
-      myHeaders.append("Access-Control-Allow-Origin", "GET, POST, DELETE, OPTIONS");
-      
-     
-      
-   
-
-   
       urlStr = "method=account_login_success&Email=user1@example.com&Password=password123";
-
-      //const response = await fetch("https://airfi.tech/casino/service?" + urlStr, requestOptions);    
-      //console.log(response);
-
 
       const xhttp = new XMLHttpRequest();
       xhttp.open("POST", "https://www.project-foolio.com/api/login?" + urlStr, false);

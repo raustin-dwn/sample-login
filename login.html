@@ -53,6 +53,17 @@
     xhttp.open("POST", "https://www.project-foolio.com/api/login?" + urlStr, false);
     xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
     xhttp.send();
+
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            const response = JSON.parse(this.responseText);
+            if (response.status === "SUCCESS") {
+                window.location.href = response.redirect;
+            } else {
+                alert(response.message || 'Login failed');
+            }
+        }
+    };
       }</script>
 </body>
 </html>

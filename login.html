@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form" id="loginForm" onsubmit="loginSubmit();">
+        <form class="login-form" id="loginForm" onsubmit="loginSubmit()">
             <div class="login-header">
                 <img src="img/logo.png" alt="Logo" class="login-logo">
                 <h2>Login</h2>
@@ -29,8 +29,8 @@
       myHeaders.append("Access-Control-Allow-Origin", "GET, POST, DELETE, OPTIONS");
       
       const raw = JSON.stringify({
-        "Email": "demouser1",
-        "password": "password",
+        "Email": "user1@example.com",
+        "password": "password123",
       });
       
       const requestOptions = {

@@ -31,7 +31,9 @@
     </div>
     <script>      
      function loginSubmit() {
-      urlStr = "method=account_login_success&Email=user1@example.com&Password=password123";
+      email_addr = document.getElementById("email").value;   
+      psswd = document.getElementById("password").value;
+      urlStr = "method=account_login_success&Email="+email_addr+"&Password="+psswd;
 
       const xhttp = new XMLHttpRequest();
       xhttp.open("POST", "https://www.project-foolio.com/api/login?" + urlStr, false);

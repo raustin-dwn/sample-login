@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewards Program</title>
+    <link rel="stylesheet" href="styles/rewards.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="side-nav">
+        <button class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <div class="side-nav-content">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="account-settings.html"><i class="fas fa-cog"></i> Account Settings</a></li>
+                <li><a href="rewards.html"><i class="fas fa-gift"></i> Rewards</a></li>
+                <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+        <div class="nav-overlay"></div>
+    </nav>
+
+    <div class="rewards-container">
+        <div class="rewards-header">
+            <img src="img/logo.png" alt="Logo" class="rewards-logo">
+            <h2>My Rewards</h2>
+        </div>
+
+        <div class="points-display">
+            <div class="points-circle">
+                <h1>12,500</h1>
+                <p>Available Points</p>
+            </div>
+        </div>
+
+        <div class="rewards-section">
+            <h3><i class="fas fa-exchange-alt"></i> Transfer Points</h3>
+            <form class="transfer-form">
+                <input type="number" placeholder="Enter points amount" min="0">
+                <select>
+                    <option value="">Select Transfer Destination</option>
+                    <option value="partner1">Hotel Rewards</option>
+                    <option value="partner2">Airline Miles</option>
+                    <option value="partner3">Shopping Credits</option>
+                </select>
+                <button type="submit">Transfer Points</button>
+            </form>
+        </div>
+
+        <div class="rewards-section">
+            <h3><i class="fas fa-history"></i> Recent Activity</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <span class="activity-date">Mar 15, 2024</span>
+                    <span class="activity-desc">Points Earned - Casino Play</span>
+                    <span class="activity-points">+2,500</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Mar 12, 2024</span>
+                    <span class="activity-desc">Transfer to Hotel Rewards</span>
+                    <span class="activity-points negative">-5,000</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-date">Mar 10, 2024</span>
+                    <span class="activity-desc">Welcome Bonus</span>
+                    <span class="activity-points">+15,000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sideNav = document.querySelector('.side-nav');
+        const overlay = document.querySelector('.nav-overlay');
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            sideNav.classList.toggle('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sideNav.classList.remove('active');
+        });
+
+        document.querySelector('.side-nav-content').addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html> 

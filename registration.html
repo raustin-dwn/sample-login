@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Responsive Registration Form | CodingLab </title>
-  <link rel="stylesheet" href="registration.css">
+  <link rel="stylesheet" href="styles/registration.css">
   <script src="registration.js" defer></script>
 </head>
 <body>
@@ -33,7 +33,7 @@
           <!-- Input for Phone Number -->
           <div class="input-box">
             <span class="details">Phone Number</span>
-            <input type="text" name="phone" placeholder="Enter your number (e.g., 555-456-7890)" required pattern="\d{3}-\d{3}-\d{4}">
+            <input type="text" name="phone" placeholder="Enter your number" required pattern="\d{3}-\d{3}-\d{4}">
           </div>
           <!-- Input for Password -->
           <div class="input-box">
@@ -51,7 +51,28 @@
           <input type="submit" value="Register">
         </div>
       </form>
+      
+      <!-- Success message (initially hidden) -->
+      <div id="successMessage" style="display: none; text-align: center;">
+        <div class="success-icon">✓</div>
+        <h2>Registration Complete!</h2>
+        <a href="login.html">Proceed to login</a>
+      </div>
     </div>
   </div>
+
+  <!-- Embedded JavaScript -->
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Hide the form
+      this.style.display = 'none';
+      
+      // Show success message
+      const successMessage = document.getElementById('successMessage');
+      successMessage.style.display = 'block';
+    });
+  </script>
 </body>
 </html>

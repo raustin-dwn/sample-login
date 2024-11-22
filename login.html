@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form" id="loginForm" onsubmit="return loginSubmit(event);">
+        <form class="login-form" id="loginForm" onsubmit="loginSubmit();">
             <div class="login-header">
                 <img src="img/logo.png" alt="Logo" class="login-logo">
                 <h2>Login</h2>
@@ -53,6 +53,8 @@
       xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
       xhttp.send();
         }
+
+        
     </script>
 </body>
 </html>

@@ -75,7 +75,7 @@
                         <label for="repeatPassword">Repeat Password</label>
                         <input type="password" id="repeatPassword" name="repeatPassword" required>
                     </div>
-                    <button type="submit" class="save-btn">Update Password</button>
+                    <button onclick="loginSubmit()">Update Password</button>
                 </form>
             </div>
         </div>
@@ -98,5 +98,19 @@
             });
         });
     </script> 
+    <script>      
+        function loginSubmit() {
+         new_pw = document.getElementById("newPassword").value; 
+         rp_pw = document.getElementById("repeatPassword").value;
+         urlStr = "method=password_change&Newpw="+new_pw+"&Rp_pw="+rp_pw;
+   
+         const xhttp = new XMLHttpRequest();
+         xhttp.open("POST", "https://www.project-foolio.com/api/login?" + urlStr, false);
+         xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+         xhttp.send();
+           }
+   
+           
+    </script>
 </body>
 </html> 

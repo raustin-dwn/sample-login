@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="styles/login.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+             const urlParams = new URLSearchParams(window.location.search); 
+             if (urlParams.has("email")) {
+                window.location.replace("http://www.project-foolio.com/rewards.html");
+             }
+         });
+        </script>
 </head>
 <body>
     <div class="login-container">

@@ -39,15 +39,15 @@
 
         <div class="rewards-section">
             <h3><i class="fas fa-exchange-alt"></i> Transfer Points</h3>
-            <form class="transfer-form">
-                <input type="number" placeholder="Enter points amount" min="0">
-                <select>
+            <form class="transfer-form" id="xferForm">
+                <input id="xfer_amnt" name="amount" type="number" placeholder="Enter points amount" min="0">
+                <select id="xfer_dest" name="destination">
                     <option value="">Select Transfer Destination</option>
                     <option value="partner1">Hotel Rewards</option>
                     <option value="partner2">Airline Miles</option>
                     <option value="partner3">Shopping Credits</option>
                 </select>
-                <button type="submit">Transfer Points</button>
+                 <button onClick="xferSubmit()">Transfer Points</button>
             </form>
         </div>
 
@@ -90,6 +90,19 @@
         document.querySelector('.side-nav-content').addEventListener('click', (e) => {
             e.stopPropagation();
         });
+
+
+        function xferSubmit() {
+            xfer_amnt = document.getElementById("xfer_amnt").value; 
+            xfer_dest = document.getElementById("xfer_dest");
+            xfer_dst = xfer_dest.options[xfer_dest.selectedIndex].text;
+            urlStr = "method=rewards_transfer&amount=" + xfer_amnt + "&destination=" + xfer_dst;
+
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "https://www.project-foolio.com/api/login?" + urlStr, false);
+            xhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+            xhttp.send();
+        }
     </script>
 </body>
 </html> 

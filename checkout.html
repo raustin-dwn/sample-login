@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout Mock</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        #payment_aside {
+            max-width: 400px;
+        }
+        .box-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .box-card-header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box-card-header h2 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: normal;
+        }
+        .box-card-action {
+            font-size: 14px;
+        }
+        .box-card-content {
+            padding: 15px;
+        }
+        address {
+            font-style: normal;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div id="payment_aside">
+        <div class="box-card">
+            <div class="box-card-header">
+                <small class="box-card-action">
+                    <span class='has-tooltip shipping-tooltip payments-tooltip' role='note' tabindex='0'>
+                        <i class='icon icon-info-circle' role='img' aria-hidden='true'></i>
+                    </span>
+                </small>
+                <h2 class="no_vertical">Shipping Address
+                </h2>
+            </div>
+            <div class="box-card-content">
+                <address style="margin: 0 -0.5em 0em">
+                    Example Name<br>
+                    Example Street<br>
+                    City, AB, 12345<br>
+                    United States<br>
+                </address>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
